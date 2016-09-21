@@ -1,0 +1,18 @@
+body {
+	font-family: "Verdana", sans-serif;
+	background-color: lightblue;
+	padding-left: 2cm;
+}
+
+p {
+	font-size: 30;
+}
+
+h1 {
+	font-size: 12;
+	text-shadow:  1px 1px #ff0000;
+}
+h2 {
+	font-size: 12;
+	text-shadow:  0px 0px #ff0000;	
+}

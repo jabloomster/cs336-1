@@ -1,0 +1,8 @@
+-Compare and contrast the purposes of Node.js and of Express.js.
+	Express is a thin, fast, easy web application framework for Node. Node is a JavaScript runtime build on Chrome V8. uses non-blocking, event driven tactics, is fast.
+-Explain the purpose of the packages.json file.
+	Most importantly contains name and field version as idendifier. It also contains dependancies, which for this lab is express v4.14.0
+-Explain the sense in which these files are “static”.
+	Images, CSS files, .js files, files that don't change or load anything else after being loaded
+-Determine whether the server continues to serve up the hello-world message and explain why this is the case.
+	It does. I think the server is listening for whenever I enter a specific url, which it routes to the appropriate function.

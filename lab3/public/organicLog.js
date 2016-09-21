@@ -1,0 +1,1 @@
+console.log("organicLog.js: I am a log and am also vegan");
