@@ -5,7 +5,7 @@
  * @author jlm54 
  * 9/21/2016
  */
-
+var os = require("os");
 var express = require('express');
 var app = express();
 
@@ -21,4 +21,4 @@ app.listen(3001, function () {
 });
 
 
-console.log("Hello from app.js");
+console.log("Hello from app.js! Host name is: " + os.hostname() + ".");

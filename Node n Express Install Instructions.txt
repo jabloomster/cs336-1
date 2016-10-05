@@ -1,0 +1,5 @@
+-Create json package : npm init
+
+-install express local: npm install express (--save)
+
+-run with node index.json

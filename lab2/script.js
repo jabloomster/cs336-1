@@ -60,7 +60,7 @@ create some instances, check the sub-classing using the
 
  // Lists friends in friendlist
  Person.prototype.listFriends = function() {
- 	console.log("Friends of " + this.name + ": \n");
+ 	console.log("Friends of " + ' ' + this.name + ": \n");
  	for (var i = this.friendList.length - 1; i >= 0; i--) {
  		console.log(this.friendList[i].name + "\n");
  	}
