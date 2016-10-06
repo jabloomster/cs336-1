@@ -1,0 +1,66 @@
+
+font1 = "Impact", sans-serif
+font2 = "Courier New", monospace
+borderColor1 = 3px solid #5888bb
+
+body
+    font: 24px Helvetica
+    background: #999999
+
+
+#main
+    min-height: 800px
+    margin: 0px
+    padding: 0px
+    display: flex
+    flex-flow: row
+
+    article 
+        margin: 4px
+        padding: 5px
+        border: 3px solid #cccc33
+        background: #dddd88
+        flex: 1 1 60%
+        order: 2
+        font-family: font1
+
+    nav 
+        margin: 4px
+        padding: 5px
+        border: borderColor1
+        background: #ccccff
+        flex: 1 1 20%
+        order: 1
+
+
+    aside 
+        margin: 4px
+        padding: 5px
+        border: borderColor1
+        background: #ccccff
+        flex: 1 1 20%
+        order: 3
+
+header, footer 
+    display: block
+    margin: 4px
+    padding: 5px
+    min-height: 100px
+    border: 3px solid #eebb55
+    background: #ffeebb
+    font-family: font2
+
+//Too narrow to support three columns
+@media all and (max-width: 640px)
+    #main, #page
+        flex-direction: column
+    
+
+    #main > article, #main > nav, #main > aside 
+        //Return them to document order
+
+    #main > nav, #main > aside, header, footer 
+        min-height: 70px
+        max-height: 1100px
+    
+
