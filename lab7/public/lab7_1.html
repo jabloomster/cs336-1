@@ -1,0 +1,40 @@
+
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+</head>
+<body>
+    <button> click 4 text! </button>
+    <a href="http://jquery.com/">jQuery</a>
+    <script src="jquery.js"></script>
+    <script>
+ 
+    $( document ).ready(function() {
+    	
+    	$("button").click(function(event) {
+	    	//create paragraph DOM element
+	    	var paragraph = document.createElement("P");
+	    	//append new text element to paragraph
+	    	var text = document.createTextNode("Some tasty text");
+	    	paragraph.appendChild(text);
+	    	//append paragraph to body
+	    	document.body.appendChild(paragraph);
+    	});
+
+    	//This is a jquery function. Click is the function,
+    	//"function" is the anonymous function that could call a 
+    	//call back function
+    	//
+        $( "a" ).click(function( event ) {
+            alert( "The link will no longer take you to jquery.com" );
+            event.preventDefault();
+            //a good spot for a callback function
+        });
+    });
+ 
+    </script>
+</body>
+</html>
