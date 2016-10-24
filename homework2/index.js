@@ -30,6 +30,11 @@ function Person(firstName, lastName, startDate) {
 	this.id=getUniqueID();
 	this.startDate=startDate;
 	peopleList.push(this);
+	this.toString = function() {
+		return "Name: " + this.firstName + " " + this.lastName +
+		"\n ID: " + this.id + 
+		"\n Start Date: " + this.startDate;
+	}
 }
 
 //list of all people
@@ -66,6 +71,7 @@ console.log(p4);
 
 var express = require('express');
 var app = express();
+app.use(express.static('public'));
 
 //note the order of all these app.gets is important, especially /person/id/ name or years?
 
@@ -90,6 +96,19 @@ app.get('/person/:id', function(req,res){
 		}
 	}
 	res.sendStatus(404);
+});
+
+//returns a person by their ID (SBI = Search By ID)
+app.get('/sbi', function (req, res) {
+		//search through people for person with matching id to res.params
+		for (var i = peopleList.length - 1; i >= 0; i--) {
+			if (peopleList[i].id == req.query.id) {
+				res.json(peopleList[i]);
+				console.log('Person at id '+req.query.id+' accessed via sbi url!');
+				return;
+			}
+		}
+		res.sendStatus(404);
 });
 
 //url to seniority of a person of given ID

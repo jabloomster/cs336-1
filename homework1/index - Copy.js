@@ -1,9 +1,9 @@
-/* Homework 2
+/* Homework 1
  * @author jlm54
- * @date 10/24/2016
+ * @date 10/4/2016
  * 
  * Server for serving up peoples at specific urls 
- * as jsons
+ * as jsons 
  *
  * * * * * * * * * * * * * * */
 
