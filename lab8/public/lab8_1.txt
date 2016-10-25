@@ -1,0 +1,25 @@
+a. Explain: 
+
+-the component structure of the application. What makes the UI composable and why does this matter?
+	-We pass metheds in a JS object to React.createClass() to make new React components, or markers, or pieces of data that React handles. These components are returned instead of generating / returning HTML strings. Its more flexible, structural, and modular that way. 
+-what JSX does.
+	-I think it allows us to inject react components into the "tree", or the composable thing we are creating- say as a child of something. It's also ealier to read, and automatically rewrites HTML tags to React elements so that they don't polute the global namespace (uses camelCase)
+-how the data flows through the components; how are comments loaded? created? saved?
+	-Coments are created not by the default HTML submit but by using React elements and calls to the server to store them in the database (file). The submit button doesn't even directly call POST. 
+	-New coments are loaded from the server (text file) using $ajax
+	-Everything is done dynamically
+-the nature and purpose of props and state; which is immutable and which is mutable and why does this distinction matter?
+	-Props passed from a parent are immutable: owned by the parent, already rendered.
+	-this.state, a private component, is changed using this.setState(), which has the compenent re-render itself.
+
+b. Consider the following, more detailed questions based on statements in the tutorial.
+
+-Try editing the comments.json file (to add or remove a legal comment). What happens and why?
+	-The file is polled every 2 seconds so you can add or remove or mess up commends as you please. 
+-When the CommentBox has loaded comments from the server (in loadCommentsFromServer()), why doesn’t it call render() to make them visible?
+	-It calls componentDidMount, which is called aetomatically by react after a component has been rendered for the first time. "The key to dynamic updates is to cass this.setState()".
+-Why should components always represent the current state of the view?
+	-so that changes are live
+	-Because the browser / user can change the state ov the view (inputing a coment), and the React component should reflect that.
+-The app implements optimistic updates. Isn’t optimism here more like foolishness? What if the server rejects the new comment (for whatever reason)?
+	-we get an error in the console every (2 seconds), which in our code undoes the comment... but the error still gets pumped into the console every 2 seconds.

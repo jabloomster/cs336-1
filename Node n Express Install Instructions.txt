@@ -3,3 +3,8 @@
 -install express local: npm install express (--save)
 
 -run with node index.json
+
+git add --a
+git commit -m "message"
+	-or leave out -m
+

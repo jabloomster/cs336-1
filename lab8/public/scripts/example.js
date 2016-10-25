@@ -10,6 +10,10 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+
+// Note that native HTML element names start with a lowercase letter, 
+// while custom React class names begin with an uppercase letter.
+
 var Comment = React.createClass({
   rawMarkup: function() {
     var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
