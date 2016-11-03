@@ -3,17 +3,21 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Search ID</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="//code.jquery.com/jquery-latest.min.js"></script>
-    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="getpersonform.js"></script>
+	<meta charset="utf-8">
+	<title>Search ID</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="//code.jquery.com/jquery-latest.min.js"></script>
+	<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="getpersonform.js"></script>
 
 </head>
 <body>
-    <h1> Search by ID! </h1>
-    <button id="submitButton"> Get Person! </button>
-    <h2 id="searchResult"> </h2>
+	<h1> Search by ID! </h1>
+	<form>
+		Person ID:<br>
+		<input type="number" id= "personID" min="0" placeholder="person id" required="true"><br>
+		<button id="submitButton"> Get Person! </button>
+	</form>
+	<h2 id="searchResult"> </h2>
 </body>
 </html>

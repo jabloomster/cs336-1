@@ -1,33 +1,35 @@
+/* Homework 2
+ * @author jlm54
+ * @date 11/3/2016
+ * 
+ * Client page script for getting a person
+ * 
+ *
+ * * * * * * * * * * * * * * */
+
 "use strict"
 
 console.log('getpersonform.js running!');
 
 $( document ).ready(function() {
 
-    $("#submitButton").click(function(event) {
-    $.ajax({
-        url: "/sbi",
-        type: "GET",
-        data: {
-            id: 2 //TODO: get this from a form
-        }
-    })
-    .done(function(result){
-        console.log("getpersonform: AJAX request for person succeeded...");
-	    	// //create paragraph DOM element
-	    	// var paragraph = document.createElement("P");
-	    	// //append new text element to paragraph
-	    	// var text = document.createTextNode(result.Message);
-	    	// paragraph.appendChild(text);
-	    	// //append paragraph to body
-	    	// document.body.appendChild(paragraph);
-            $("#searchResult").html("<p>" + result + "</p>");
+    $("form").on( "submit", function(event) {
+        event.preventDefault();
+        console.log("submitButton clicked!");
 
+        $.ajax({
+            url: "/person/" + $("#personID").val(),
+            type: "GET"
         })
-    .fail(function(xhr, status, errorThrown) {
-       console.log('getpersonform: AJAX request failed...');
-   })
-});
+        .done(function(result){
+            console.log("getpersonform: AJAX request for person succeeded.");
+            $("#searchResult").html("<p>" + result.firstName + "</p>");
+        })
+        .fail(function(xhr, status, errorThrown) {
+         console.log('getpersonform: AJAX request failed...Person not found');
+         $("#searchResult").html("<p>" + 'Nobody by that ID.' + "</p>");
+     })
+    });
 
 
 });
