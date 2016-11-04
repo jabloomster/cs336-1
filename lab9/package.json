@@ -21,10 +21,17 @@
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "concurrently": "^3.1.0",
+    "webpack-dev-server": "^1.16.2"
+  },
   "scripts": {
+    "build": "webpack --progress",
+    "deva": "node server.js",
+    "devb": "webpack-dev-server --progress",
+    "dev": "concurrently --kill-others \"npm run deva\" \"npm run devb\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack && node server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
