@@ -8,3 +8,8 @@ git add --a
 git commit -m "message"
 	-or leave out -m
 
+git checkout master                     (if necessary...)
+…                                       (make/add/commit changes to the local master branch, testing as necessary...)
+git checkout production11
+git merge master -s subtree -m "merge comment..."
+git push origin --all                   (pushes all branches...)
