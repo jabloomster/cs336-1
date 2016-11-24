@@ -1,0 +1,22 @@
+-Create json package : npm init
+
+-install express local: npm install express (--save)
+
+-run with node index.json
+
+git add --a
+git commit -m "message"
+	-or leave out -m
+
+
+New Branch from dir:
+	git subtree split --branch production11 --prefix your-lab11-sub-directory/
+
+	git push origin -all
+
+pushing to branch:
+	git checkout master                     (if necessary...)
+	…                                       (make/add/commit changes to the local master branch, testing as necessary...)
+	git checkout production11
+	git merge master -s subtree -m "merge comment..."
+	git push origin --all                   (pushes all branches...)
