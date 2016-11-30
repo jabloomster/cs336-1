@@ -1,3 +1,5 @@
+//ToDo: Fix Imports and modularize
+
 // Note that native HTML element names start with a lowercase letter, 
 // while custom React class names begin with an uppercase letter.
 
