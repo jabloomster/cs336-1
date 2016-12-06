@@ -11,13 +11,13 @@ module.exports = React.createClass({
         return {data: []};
     },
     componentWillMount() {
-        this.unsubscribe = store.subscribe(() => { //subscribe to the store's update message
-            this.setState({ //compenent's state should be updated with the store data
+        this.unsubscribe = store.subscribe(() => { 
+            this.setState({ 
                 data: store.getState().data
             });
         });
     },
-    componentWillUnmount: function() { //unsubscribie when component isn't being used (unmounted)
+    componentWillUnmount: function() {
         this.unsubscribe();
     },
     handleCommentSubmit: function(comment) {
@@ -25,7 +25,7 @@ module.exports = React.createClass({
         comment.id = Date.now();
         var newComments = comments.concat([comment]);
         this.setState({data: newComments});
-        store.dispatch(ActionTools.addComment(comment)); //dispatch call to the store (in flux.js)
+        store.dispatch(ActionTools.addComment(comment));
     },
     render: function() {
         return (

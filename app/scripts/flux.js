@@ -23,11 +23,6 @@ let StoreTools = {
 	}
 };
 
-// | These functions will receive a comment object
-// | (with values for author, title and, potentially, id)
-// | and create an appropriate action specification.
-// |
-// | Action -> Dispatcher -> Reducer -> 
 let ActionTools = {
 	addComment: function(comment) {
 		return {
@@ -61,7 +56,6 @@ let ActionTools = {
 	}
 };
 
-// Reducers modify the store’s state and, in our application, update the database. 
 let Reducers = {
 
 	loadingComments: function() {
@@ -85,8 +79,6 @@ let Reducers = {
 			data: action.comment,
 		})
 		.done(function(result){
-                // Do nothing; the comment is optimistially displayed
-                // already and will refresh on the next poll.
             }.bind(this))
 		.fail(function(xhr, status, errorThrown) {
 			console.error(API_URL, status, errorThrown.toString());
@@ -100,8 +92,6 @@ let Reducers = {
 			data: action.comment
 		})
 		.done(function(comments){
-                // Do nothing; the comment is optimistially displayed
-                // already and will refresh on the next poll.
             }.bind(this))
 		.fail(function(xhr, status, errorThrown) {
 			console.error(API_URL, status, errorThrown.toString());
@@ -113,8 +103,6 @@ let Reducers = {
 			type: 'DELETE',
 		})
 		.done(function(comments){
-                // Do nothing; the comment is optimistially displayed
-                // already and will refresh on the next poll.
             }.bind(this))
 		.fail(function(xhr, status, errorThrown) {
 			console.error(API_URL, status, errorThrown.toString());
@@ -123,10 +111,8 @@ let Reducers = {
 }
 };
 
-// Disapatcher: receives action requests and calls the appropriate reducer.
 function commentsApp(state, action) { 
 	switch (action.type) {
-        // Switchboard entries that connect a dispatched action to its reducer
         case 'ADD_COMMENT':
             Reducers.addComment(action);
             return state;
@@ -140,17 +126,14 @@ function commentsApp(state, action) {
             Reducers.loadingComments();
             return state;
         case 'LOADED_COMMENTS':
-        // inserting the comment list passed with the action parameter into the new returned state. 
-        // so there is no reducer for this one cuz its implimented here.
             return { data: action.comments };
         default:
         return state;
     }
 };
 
-// the store, or application state
 let defaultState = {
-	data:[] //an empty list of comment objects
+	data:[]
 };
 
 let store = createStore(commentsApp, defaultState);
