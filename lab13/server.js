@@ -89,7 +89,7 @@ app.delete('/api/comments/:id', function(req, res) {
             db.collection("comments").find({}).toArray(function(err, docs) {
                 if (err) throw err;
                 res.json(docs);
-            });
+            }); 
         });
 });
 
