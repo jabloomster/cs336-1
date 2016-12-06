@@ -11,9 +11,6 @@
  */
 
 
-// Note that native HTML element names start with a lowercase letter, 
-// while custom React class names begin with an uppercase letter.
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CommentBox from './commentBox';
