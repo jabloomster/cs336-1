@@ -42,11 +42,10 @@ let ActionTools = {
 			comment: comment
 		};
 	},
-	deleteComment: function(id, comment) {
+	deleteComment: function(id) {
 		return {
 			type: 'DELETE_COMMENT',
-			id: id,
-			comment: comment
+			id: id
 		};
 	},
 	loadingComments: function() {
