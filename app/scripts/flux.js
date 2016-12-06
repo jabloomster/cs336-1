@@ -106,7 +106,6 @@ let Reducers = {
 			console.error(API_URL, status, errorThrown.toString());
 		}.bind(this));
 	}
-}
 };
 
 function commentsApp(state, action) { 
