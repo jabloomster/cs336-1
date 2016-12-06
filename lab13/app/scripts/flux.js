@@ -4,22 +4,20 @@ import { createStore } from 'redux';
 import { API_URL, POLL_INTERVAL } from './global';
 
 let StoreTools = {
-	let StoreTools = {
-		dispatchLoadingComments: function () {
-			store.dispatch(ActionTools.loadingComments());
-		},
-		startLoadingComments: function() {
-			this.dispatchLoadingComments();
-			setInterval(this.dispatchLoadingComments, POLL_INTERVAL);
-		},
-		findComment: function(id, commentList) {
-			for (var comment of commentList) {
-				if (comment.id == id) {
-					return { id: id, author: comment.author, text: comment.text };
-				}
+	dispatchLoadingComments: function () {
+		store.dispatch(ActionTools.loadingComments());
+	},
+	startLoadingComments: function() {
+		this.dispatchLoadingComments();
+		setInterval(this.dispatchLoadingComments, POLL_INTERVAL);
+	},
+	findComment: function(id, commentList) {
+		for (var comment of commentList) {
+			if (comment.id == id) {
+				return { id: id, author: comment.author, text: comment.text };
 			}
-			return { id: '',  author: '', text: '' };
 		}
+		return { id: '',  author: '', text: '' };
 	}
 };
 
@@ -53,12 +51,10 @@ let ActionTools = {
 			type: 'LOADING_COMMENTS'
 		};
 	},
-	loadedComments: function(comments) {
-		return {
-			type: 'LOADED_COMMENTS',
-			comments: comments
-		};
-	}
+	return {
+		type: 'LOADED_COMMENTS',
+		comments: comments
+	};
 };
 
 // Reducers modify the store’s state and, in our application, update the database. 
@@ -120,7 +116,6 @@ let Reducers = {
 			console.error(API_URL, status, errorThrown.toString());
 		}.bind(this));
 	}
-}
 };
 
 // Disapatcher: receives action requests and calls the appropriate reducer.
@@ -128,21 +123,21 @@ function commentsApp(state, action) {
 	switch (action.type) {
         // Switchboard entries that connect a dispatched action to its reducer
         case 'ADD_COMMENT':
-            Reducers.addComment(action);
-            return state;
+        Reducers.addComment(action);
+        return state;
         case 'EDIT_COMMENT':
-            Reducers.editComment(action);
-            return state;
+        Reducers.editComment(action);
+        return state;
         case 'DELETE_COMMENT':
-        	Reducers.deleteComment(action);
-        	return state;
-    	case 'LOADING_COMMENTS':
-            Reducers.loadingComments();
-            return state;
+        Reducers.deleteComment(action);
+        return state;
+        case 'LOADING_COMMENTS':
+        Reducers.loadingComments();
+        return state;
         case 'LOADED_COMMENTS':
         // inserting the comment list passed with the action parameter into the new returned state. 
         // so there is no reducer for this one cuz its implimented here.
-            return { data: action.comments };
+        return { data: action.comments };
         default:
         return state;
     }
