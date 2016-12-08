@@ -1,4 +1,4 @@
-const API_URL = "api/comments";
-const POLL_INTERVAL = 2000;
+const API_URL = "/api/timeslots";
+const POLL_INTERVAL = 500;
 
-module.exports = { API_URL, POLL_INTERVAL };
+module.exports = {API_URL, POLL_INTERVAL};
