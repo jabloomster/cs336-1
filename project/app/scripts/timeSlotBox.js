@@ -52,7 +52,7 @@ module.exports = React.createClass({
   render: function() {
     return (
       <div className="timeSlotBox">
-        <h1>Time Slots</h1>
+        <h1>Signup Times</h1>
         <TimeSlotList data={this.state.data} onTimeSlotSubmit={this.handleTimeSlotSubmit} />
       </div>
     );

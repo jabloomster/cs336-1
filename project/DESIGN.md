@@ -11,6 +11,7 @@ Component structure for ReactJS front-end:
 Document Structure for MongoDB back-end:
 
 timeSlot
-	-time
-	-donerName
-	-donerMail
+	-date (dd/mm/yyyy)
+	-time (military 00:00:00)
+	-name 
+	-email

@@ -52,12 +52,12 @@ module.exports = React.createClass({
       <div className="timeSlot">
         <p className="timeSlotName">
           {this.props.date} {this.props.time} {this.props.name}
-        </p>
+        
     	{ this.props.filled ? null :          
 		  	<form className="timeSlotForm">
 			  <input
 				type="text"
-				placeholder="Your name"
+				placeholder="Your Name"
 				value={this.state.name}
 				onChange={this.handleNameChange}
 			  />
@@ -70,6 +70,7 @@ module.exports = React.createClass({
 			  <button type="button" onClick={this.handleUpdate}>Sign Up</button>
 			</form>
 		}
+	  </p>
 	  </div>
     );
   }
